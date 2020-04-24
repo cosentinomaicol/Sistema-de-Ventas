@@ -71,6 +71,7 @@ namespace CapaDeDatos
             try
             {
           //      SqlCon.ConnectionString = Conexion.Cn;
+          /////777
                 //obtengo cadena de conexion , de mi clase Conexion
                 SqlCon.Open();
                 //abro conexion a la base de datos
