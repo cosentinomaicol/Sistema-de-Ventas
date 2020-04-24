@@ -1,0 +1,7 @@
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\bin\Debug\CapaDeNegocio.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\bin\Debug\CapaDeNegocio.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\bin\Debug\CapaDeDatos.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\bin\Debug\CapaDeDatos.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\obj\Debug\CapaDeNegocio.csprojResolveAssemblyReference.cache
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\obj\Debug\CapaDeNegocio.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeNegocio\obj\Debug\CapaDeNegocio.pdb

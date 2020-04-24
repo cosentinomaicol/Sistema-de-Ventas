@@ -1,0 +1,11 @@
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\bin\Debug\CapaDePresentacion.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\bin\Debug\CapaDePresentacion.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\bin\Debug\CapaDeNegocio.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\bin\Debug\CapaDeDatos.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\bin\Debug\CapaDeNegocio.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\bin\Debug\CapaDeDatos.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.csprojResolveAssemblyReference.cache
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.FrmCategoria.resources
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.GenerateResource.Cache
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.pdb

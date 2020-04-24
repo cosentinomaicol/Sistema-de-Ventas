@@ -1,0 +1,5 @@
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeDatos\bin\Debug\CapaDeDatos.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeDatos\bin\Debug\CapaDeDatos.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeDatos\obj\Debug\CapaDeDatos.csprojResolveAssemblyReference.cache
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeDatos\obj\Debug\CapaDeDatos.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDeDatos\obj\Debug\CapaDeDatos.pdb

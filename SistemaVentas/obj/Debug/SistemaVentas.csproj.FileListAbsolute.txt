@@ -1,0 +1,14 @@
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\SistemaVentas.exe.config
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\SistemaVentas.exe
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\SistemaVentas.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\CapaDePresentacion.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\CapaDeNegocio.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\CapaDeDatos.dll
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\CapaDePresentacion.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\CapaDeNegocio.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\bin\Debug\CapaDeDatos.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csprojResolveAssemblyReference.cache
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Properties.Resources.resources
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csproj.GenerateResource.Cache
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.exe
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.pdb
