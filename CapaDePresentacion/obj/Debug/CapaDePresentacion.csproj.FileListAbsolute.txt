@@ -9,3 +9,4 @@ F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDeP
 F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.csproj.GenerateResource.Cache
 F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.dll
 F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\CapaDePresentacion\obj\Debug\CapaDePresentacion.FrmCliente.resources

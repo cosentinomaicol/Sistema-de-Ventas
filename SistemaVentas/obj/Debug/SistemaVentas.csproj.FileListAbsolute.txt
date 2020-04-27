@@ -12,3 +12,4 @@ F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVenta
 F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.csproj.GenerateResource.Cache
 F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.exe
 F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.pdb
+F:\SistemasDeVentasEscritorio\SistemaVentas\SistemaVentas\obj\Debug\SistemaVentas.Form1.resources

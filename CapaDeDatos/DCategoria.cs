@@ -10,6 +10,8 @@ namespace CapaDeDatos
 {
     public class DCategoria
     {
+        SqlCommand SqlCmd;
+        Conexion conexion;
         //En esta clase estaran todos los metodos para poder eliminar, insertar, buscar, actualizar ,mostrar datos de la tabla Categoria
         private int _Id;
         private string _Descripcion;
@@ -70,43 +72,46 @@ namespace CapaDeDatos
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-          //      SqlCon.ConnectionString = Conexion.Cn;
-          /////777
-                //obtengo cadena de conexion , de mi clase Conexion
-                SqlCon.Open();
-                //abro conexion a la base de datos
-                SqlCommand SqlCmd = new SqlCommand();
-                //Creo un comando para comunicarme con SQLServer
-                SqlCmd.Connection = SqlCon;
-                //El comando le asigno la conexion establecida
-                SqlCmd.CommandText = "spinsertar_categoria";
-                //Objeto al que voy hacer referencia en mi base de datos
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                //El tipo de objeto al que quiero conectarme es un stored procedure
-                SqlParameter Parametros = new SqlParameter();
-                //creo los parametros para pasarle al stored procedure
-                Parametros.ParameterName = "@idcategoria";
-                //nombre del parametro
-                Parametros.SqlDbType = SqlDbType.Int;
-                //El parametro es de tipo entero
-                Parametros.Direction = ParameterDirection.Output;
-                //el parametro es del tipo de salida
-                SqlCmd.Parameters.Add(Parametros);
-                //agrego el parametro
+                conexion = new Conexion();
+                rpta = conexion.Conectado();
+                if (rpta == "OK")
+                {
+                    //obtengo cadena de conexion , de mi clase Conexion
+                    SqlCon.Open();
+                    //abro conexion a la base de datos
+                    SqlCommand SqlCmd = new SqlCommand();
+                    //Creo un comando para comunicarme con SQLServer
+                    SqlCmd.Connection = conexion.Cn;
+                    //El comando le asigno la conexion establecida
+                    SqlCmd.CommandText = "spinsertar_categoria";
+                    //Objeto al que voy hacer referencia en mi base de datos
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    //El tipo de objeto al que quiero conectarme es un stored procedure
+                    SqlParameter Parametros = new SqlParameter();
+                    //creo los parametros para pasarle al stored procedure
+                    Parametros.ParameterName = "@idcategoria";
+                    //nombre del parametro
+                    Parametros.SqlDbType = SqlDbType.Int;
+                    //El parametro es de tipo entero
+                    Parametros.Direction = ParameterDirection.Output;
+                    //el parametro es del tipo de salida
+                    SqlCmd.Parameters.Add(Parametros);
+                    //agrego el parametro
 
-                SqlParameter ParDescripcion = new SqlParameter();
-                //creo los parametros para pasarle al stored procedure
-                ParDescripcion.ParameterName = "@descripcion";
-                //nombre del parametro
-                ParDescripcion.SqlDbType = SqlDbType.VarChar;
-                ParDescripcion.Size = 500;
-                //tamaño de caracteres que soporta la variable
-                ParDescripcion.Value = Categoria.Descripcion;
-                //valor que le voy asignar
-                SqlCmd.Parameters.Add(ParDescripcion);
+                    SqlParameter ParDescripcion = new SqlParameter();
+                    //creo los parametros para pasarle al stored procedure
+                    ParDescripcion.ParameterName = "@descripcion";
+                    //nombre del parametro
+                    ParDescripcion.SqlDbType = SqlDbType.VarChar;
+                    ParDescripcion.Size = 500;
+                    //tamaño de caracteres que soporta la variable
+                    ParDescripcion.Value = Categoria.Descripcion;
+                    //valor que le voy asignar
+                    SqlCmd.Parameters.Add(ParDescripcion);
 
-                //Ejecutamos nuestro comando
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se ingreso el registro";
+                    //Ejecutamos nuestro comando
+                    rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se ingreso el registro";
+                }
 
             }
             catch (Exception ex)
@@ -115,12 +120,7 @@ namespace CapaDeDatos
                 rpta = ex.Message;
             }
             finally {
-                //limpia todos los recursos que se asignan al bloque
-                //siempre ejecuta finally
-                if (SqlCon.State == ConnectionState.Open) {
-                    //Si el estado de la conexion esta abierta , la cierro
-                    SqlCon.Close();
-                }
+                conexion.Desconectado();
             }
             return rpta;
 
@@ -132,42 +132,44 @@ namespace CapaDeDatos
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-             //   SqlCon.ConnectionString = Conexion.Cn;
-                //obtengo cadena de conexion , de mi clase Conexion
-                SqlCon.Open();
-                //abro conexion a la base de datos
-                SqlCommand SqlCmd = new SqlCommand();
-                //Creo un comando para comunicarme con SQLServer
-                SqlCmd.Connection = SqlCon;
-                //El comando le asigno la conexion establecida
-                SqlCmd.CommandText = "speditar_categoria";
-                //Objeto al que voy hacer referencia en mi base de datos
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                //El tipo de objeto al que quiero conectarme es un stored procedure
-                SqlParameter Parametros = new SqlParameter();
-                //creo los parametros para pasarle al stored procedure
-                Parametros.ParameterName = "@idCategoria";
-                //nombre del parametro
-                Parametros.SqlDbType = SqlDbType.Int;
-                //El parametro es de tipo entero
-             
-                Parametros.Value = Categoria.Id;
-                SqlCmd.Parameters.Add(Parametros);
-                //agrego el parametro
+                conexion = new Conexion();
+                rpta = conexion.Conectado();
+                if (rpta == "OK")
+                {
+                    //abro conexion a la base de datos
+                    SqlCommand SqlCmd = new SqlCommand();
+                    //Creo un comando para comunicarme con SQLServer
+                    SqlCmd.Connection = conexion.Cn; 
+                    //El comando le asigno la conexion establecida
+                    SqlCmd.CommandText = "speditar_categoria";
+                    //Objeto al que voy hacer referencia en mi base de datos
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    //El tipo de objeto al que quiero conectarme es un stored procedure
+                    SqlParameter Parametros = new SqlParameter();
+                    //creo los parametros para pasarle al stored procedure
+                    Parametros.ParameterName = "@idCategoria";
+                    //nombre del parametro
+                    Parametros.SqlDbType = SqlDbType.Int;
+                    //El parametro es de tipo entero
 
-                SqlParameter ParDescripcion = new SqlParameter();
-                //creo los parametros para pasarle al stored procedure
-                ParDescripcion.ParameterName = "@descripcion";
-                //nombre del parametro
-                ParDescripcion.SqlDbType = SqlDbType.VarChar;
-                ParDescripcion.Size = 500;
-                //tamaño de caracteres que soporta la variable
-                ParDescripcion.Value = Categoria.Descripcion;
-                //valor que le voy asignar
-                SqlCmd.Parameters.Add(ParDescripcion);
+                    Parametros.Value = Categoria.Id;
+                    SqlCmd.Parameters.Add(Parametros);
+                    //agrego el parametro
 
-                //Ejecutamos nuestro comando
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Actualizo el registro";
+                    SqlParameter ParDescripcion = new SqlParameter();
+                    //creo los parametros para pasarle al stored procedure
+                    ParDescripcion.ParameterName = "@descripcion";
+                    //nombre del parametro
+                    ParDescripcion.SqlDbType = SqlDbType.VarChar;
+                    ParDescripcion.Size = 500;
+                    //tamaño de caracteres que soporta la variable
+                    ParDescripcion.Value = Categoria.Descripcion;
+                    //valor que le voy asignar
+                    SqlCmd.Parameters.Add(ParDescripcion);
+
+                    //Ejecutamos nuestro comando
+                    rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se Actualizo el registro";
+                }
 
             }
             catch (Exception ex)
@@ -177,13 +179,7 @@ namespace CapaDeDatos
             }
             finally
             {
-                //limpia todos los recursos que se asignan al bloque
-                //siempre ejecuta finally
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    //Si el estado de la conexion esta abierta , la cierro
-                    SqlCon.Close();
-                }
+                conexion.Desconectado();
             }
             return rpta;
 
@@ -195,35 +191,35 @@ namespace CapaDeDatos
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-            //    SqlCon.ConnectionString = Conexion.Cn;
-                
-                
-                //obtengo cadena de conexion , de mi clase Conexion
-                SqlCon.Open();
-                //abro conexion a la base de datos
-                SqlCommand SqlCmd = new SqlCommand();
-                //Creo un comando para comunicarme con SQLServer
-                SqlCmd.Connection = SqlCon;
-                //El comando le asigno la conexion establecida
-                SqlCmd.CommandText = "speliminar_categoria";
-                //Objeto al que voy hacer referencia en mi base de datos
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                //El tipo de objeto al que quiero conectarme es un stored procedure
-                SqlParameter Parametros = new SqlParameter();
-                //creo los parametros para pasarle al stored procedure
-                Parametros.ParameterName = "@idCategoria";
-                //nombre del parametro
-                Parametros.SqlDbType = SqlDbType.Int;
-                //El parametro es de tipo entero
+                conexion = new Conexion();
+                rpta = conexion.Conectado();
+                if (rpta == "OK")
+                {
+                    //abro conexion a la base de datos
+                    SqlCommand SqlCmd = new SqlCommand();
+                    //Creo un comando para comunicarme con SQLServer
+                    SqlCmd.Connection = conexion.Cn; ;
+                    //El comando le asigno la conexion establecida
+                    SqlCmd.CommandText = "speliminar_categoria";
+                    //Objeto al que voy hacer referencia en mi base de datos
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    //El tipo de objeto al que quiero conectarme es un stored procedure
+                    SqlParameter Parametros = new SqlParameter();
+                    //creo los parametros para pasarle al stored procedure
+                    Parametros.ParameterName = "@idCategoria";
+                    //nombre del parametro
+                    Parametros.SqlDbType = SqlDbType.Int;
+                    //El parametro es de tipo entero
 
-                Parametros.Value = Categoria.Id;
-                SqlCmd.Parameters.Add(Parametros);
-                //agrego el parametro
+                    Parametros.Value = Categoria.Id;
+                    SqlCmd.Parameters.Add(Parametros);
+                    //agrego el parametro
 
-               
 
-                //Ejecutamos nuestro comando
-                rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se elimino el registro";
+
+                    //Ejecutamos nuestro comando
+                    rpta = SqlCmd.ExecuteNonQuery() == 1 ? "OK" : "No se elimino el registro";
+                }
 
             }
             catch (Exception ex)
@@ -233,13 +229,7 @@ namespace CapaDeDatos
             }
             finally
             {
-                //limpia todos los recursos que se asignan al bloque
-                //siempre ejecuta finally
-                if (SqlCon.State == ConnectionState.Open)
-                {
-                    //Si el estado de la conexion esta abierta , la cierro
-                    SqlCon.Close();
-                }
+                conexion.Desconectado();
             }
             return rpta;
         }
@@ -249,23 +239,25 @@ namespace CapaDeDatos
         public DataTable Mostrar() {
             //se muestran las filas en una tabla en la memoria ram y luego sera utilizado para cargar una datagridview
             DataTable DtResultado = new DataTable("tblCategoria");
-            //Creo una variable del tipo resultado para llenar la tabla
+            string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-              //  SqlCon.ConnectionString = Conexion.Cn;
-                //obtengo cadena de conexion , de mi clase Conexion
-                SqlCon.Open();
-                //abro conexion a la base de datos
-                SqlCommand SqlCmd = new SqlCommand();
-                //Creo un comando para comunicarme con SQLServer
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spmostrar_categoria";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                //El tipo de objeto al que quiero conectarme es un stored procedure
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                //creo un SqlAdapter para poder ejecutar el comando y llenar el DataTable
-                SqlDat.Fill(DtResultado);
+                conexion = new Conexion();
+                rpta = conexion.Conectado();
+                if (rpta == "OK")
+                {
+                    //abro conexion a la base de datos
+                    SqlCommand SqlCmd = new SqlCommand();
+                    //Creo un comando para comunicarme con SQLServer
+                    SqlCmd.Connection = conexion.Cn; ;
+                    SqlCmd.CommandText = "spmostrar_categoria";
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    //El tipo de objeto al que quiero conectarme es un stored procedure
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                    //creo un SqlAdapter para poder ejecutar el comando y llenar el DataTable
+                    SqlDat.Fill(DtResultado);
+                }
                 //Lleno el Datatable
             }
             catch (Exception ex) {
@@ -280,34 +272,37 @@ namespace CapaDeDatos
         public DataTable BuscarElemento(DCategoria Categoria) {
             //se muestran las filas en una tabla en la memoria ram y luego sera utilizado para cargar una datagridview
             DataTable DtResultado = new DataTable("tblCategoria");
-            //Creo una variable del tipo resultado para llenar la tabla
+            string rpta = "";
             SqlConnection SqlCon = new SqlConnection();
             try
             {
-             //   SqlCon.ConnectionString = Conexion.Cn;
-                //obtengo cadena de conexion , de mi clase Conexion
-                SqlCon.Open();
-                //abro conexion a la base de datos
-                SqlCommand SqlCmd = new SqlCommand();
-                //Creo un comando para comunicarme con SQLServer
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_categoria";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-                //El tipo de objeto al que quiero conectarme es un stored procedure
+                conexion = new Conexion();
+                rpta = conexion.Conectado();
+                if (rpta == "OK")
+                {
 
-                SqlParameter ParTextoBuscar = new SqlParameter();
-                ParTextoBuscar.ParameterName = "@textobuscar";
-                ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextoBuscar.Size = 50;
-                //tamaño de caracteres que soporta la variable
-                ParTextoBuscar.Value = Categoria.TextoBuscar;
-                //valor que le voy asignar
-                SqlCmd.Parameters.Add(ParTextoBuscar);
+                    //abro conexion a la base de datos
+                    SqlCommand SqlCmd = new SqlCommand();
+                    //Creo un comando para comunicarme con SQLServer
+                    SqlCmd.Connection = conexion.Cn; ;
+                    SqlCmd.CommandText = "spbuscar_categoria";
+                    SqlCmd.CommandType = CommandType.StoredProcedure;
+                    //El tipo de objeto al que quiero conectarme es un stored procedure
 
-                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-                //creo un SqlAdapter para poder ejecutar el comando y llenar el DataTable
-                SqlDat.Fill(DtResultado);
-                //Lleno el Datatable
+                    SqlParameter ParTextoBuscar = new SqlParameter();
+                    ParTextoBuscar.ParameterName = "@textobuscar";
+                    ParTextoBuscar.SqlDbType = SqlDbType.VarChar;
+                    ParTextoBuscar.Size = 50;
+                    //tamaño de caracteres que soporta la variable
+                    ParTextoBuscar.Value = Categoria.TextoBuscar;
+                    //valor que le voy asignar
+                    SqlCmd.Parameters.Add(ParTextoBuscar);
+
+                    SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                    //creo un SqlAdapter para poder ejecutar el comando y llenar el DataTable
+                    SqlDat.Fill(DtResultado);
+                    //Lleno el Datatable
+                }
             }
             catch (Exception ex)
             {

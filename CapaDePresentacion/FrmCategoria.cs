@@ -210,6 +210,10 @@ namespace CapaDePresentacion
             this.txtNombre.Text = Convert.ToString(this.dataListado.CurrentRow.Cells["Descripcion"].Value);
             this.tabControl1.SelectedIndex = 1;
             this.btnCancelar.Enabled = true;
+            this.IsEditar = true;
+            this.IsNuevo = false;
+            this.Botones();
+            this.Habilitar(true);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -223,7 +227,7 @@ namespace CapaDePresentacion
             }
             else
             {
-                this.MensajeError("Debe Ingresar primero el registro a Modificar");
+                this.MensajeError("Debe Ingresar primero el registro a Modificar,para esto valla a la grilla y presione doble click en el elemento a modificar");
             }
         }
 
@@ -289,6 +293,11 @@ namespace CapaDePresentacion
                 MessageBox.Show(ex.Message + ex.StackTrace);
             }
         
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
